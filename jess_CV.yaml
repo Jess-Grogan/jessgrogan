@@ -1,0 +1,150 @@
+
+cv:
+  name: Jessica Grogan
+  location: Buffalo
+  email: jrgrogan@buffalo.edu
+  # phone: tel:+1-607-731-0588
+  website: https://jessgrogan.com/
+  # social_networks:
+  #   - network: LinkedIn
+  #     username: yourusername (eh)
+  #   - network: GitHub
+  #     username: JessicaGrogan (might change one day)
+  sections:
+    education:
+      - institution: University at Buffalo
+        area: Theoretical Computer Science
+        degree: PhD
+        start_date: 2021-08
+        highlights:
+          - "GPA: 3.5/4.0 "
+          - "Schomburg Fellowship"
+      - institution: University at Buffalo
+        area: Computer Science
+        degree: BS
+        start_date: 2017-08
+        end_date: 2021-05
+        highlights:
+          - "GPA: 3.5/4.0 "
+    publications:
+      - title: "Can Transformers Solve Least Squares to High Precision?"
+        authors:
+          - Jerry Weihong Liu
+          - '***Jessica Grogan***'
+          - Owen M Dugan
+          - Simran Arora
+          - Atri Rudra
+          - Christopher Ré
+        journal: International Conference on Machine Learning, In-Context Learning Workshop
+        date: "2024"
+      - title: "Monarch Mixer: A Simple Sub-Quadratic GEMM Based Architecture"
+        authors:
+          - Dan Fu
+          - Simran Arora
+          - '***Jessica Grogan***'
+          - Isys Johnson
+          - Atri Rudra
+          - Tri Dao
+          - Christopher Ré
+        journal: Neural Information Processing Systems, **Oral presentation**
+        date: "2023"
+      - title: "Monarch: Expressive Structured Matrices for Efficient and Accurate Training"
+        authors:
+          - Tri Dao
+          - Beidi Chen
+          - Nimit Sohoni
+          - Arjun Desai
+          - Michael Poli
+          - '***Jessica Grogan***'
+          - Alexander Liu
+          - Aniruddh Rao
+          - Atri Rudra
+          - Christopher Ré
+        date: "2022"
+        journal: International Conference on Machine Learning, **Outstanding Paper Runner-up Award**
+
+    experience:
+      - company: University at Buffalo
+        position: Research Assistant
+        location: Buffalo, NY
+        start_date: 2021-05
+        highlights:
+          - Designed a sub-class of Monarch matrices that maintains causal properties throughout training a neural network by utilizing polynomial evaluations.
+          - Designed an expressive class of structured matrices (Monarch matrices) for IO efficient matrix multiplication.
+          - Gained research experience in theory driven machine learning utilizing structured linear algebra.
+      - company: ACV Auctions
+        position: Machine Learning Engineer Intern
+        location: Buffalo, NY
+        start_date: 2023-05
+        end_date: 2023-12
+        highlights:
+          - Designed and implemented a classification model for engine vibration data using PyTorch.
+          - Collaborated on designing and implementing an audio-vibration model to accurately detect issues of a car engine.
+      - company: University at Buffalo
+        position: Teaching Assistant - Algorithms
+        location: Buffalo, NY
+        start_date: 2020-01
+        end_date: 2021-05
+        highlights:
+          - Taught students common algorithms in the field of computer science and how to analyze time and space complexity. Algorithms included BFS, DFS, stable matching problem, etc.
+          - Held weekly office hours, reviewed and graded students' exams, and written homework assignments.
+      - company: University at Buffalo
+        position: Teaching Assistant - Systems Programming
+        location: Buffalo, NY
+        start_date: 2019-08
+        end_date: 2021-05
+        highlights:
+          - Taught students systems programming in C using Ubuntu virtual machines. Projects included memory allocation systems, synchronized memory usage, etc.
+          - Held weekly office hours, reviewed and graded students' exams, and programming assignments.
+      - company: Salient Management company
+        position: Software Engineer Intern
+        location: Horseheads, NY
+        start_date: 2018-05
+        end_date: 2018-08
+        highlights: 
+          - Worked with the Quality Assurance team to develop and test new business analytic products before deployment. Learned and utilized Java, Git, GitBucket and Jira.
+    technologies:
+      - label: Tools
+        details: "Python, PyTorch, C, C++, GitHub, Java"
+    highlights:
+      - Alan Selman Award (2024)
+      - Schomburg Fellowship (2021-2024)
+      - Outstanding Paper Runner-Up Award (International Conference on Machine Learning 2022)
+design:
+  theme: engineeringresumes
+  font: Latin Modern Serif #Source Sans 3
+  font_size: 10pt
+  page_size: letterpaper
+  color: Black
+  disable_external_link_icons: false
+  disable_page_numbering: false
+  page_numbering_style: NAME - Page PAGE_NUMBER of TOTAL_PAGES
+  disable_last_updated_date: false
+  last_updated_date_style: Last updated in TODAY
+  header_font_size: 30 pt
+  text_alignment: justified
+  seperator_between_connections: ''
+  use_icons_for_connections: true
+  margins:
+    page:
+      top: 2 cm
+      bottom: 2 cm
+      left: 2 cm
+      right: 2 cm
+    section_title:
+      top: 0.3 cm
+      bottom: 0.2 cm
+    entry_area:
+      left_and_right: 0.2 cm
+      vertical_between: 0.2 cm
+      date_and_location_width: 4.5 cm
+      # education_degree_width: 1 cm
+    highlights_area:
+      top: 0.10 cm
+      left: 0.4 cm
+      vertical_between_bullet_points: 0.10 cm
+    header:
+      vertical_between_name_and_connections: 0.3 cm
+      bottom: 0.3 cm
+      horizontal_between_connections: 0.5 cm
+  # show_timespan_in: []
