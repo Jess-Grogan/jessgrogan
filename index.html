@@ -1,94 +1,161 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-        <style>
-                img {
-                  border-radius: 4%;
-                }
+    <style>
+        img {
+            border-radius: 4%;
+        }
 
-                body {margin:20;padding:20}
-        </style>
-<title>Jessica Grogan</title>
+        body {
+            margin: 20px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Tab styling */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            animation: fadeEffect 1s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+    <title>Jessica Grogan</title>
 </head>
 
 <body>
-<!-- Credit to Atri Rudra, I copied his HTML for this website-->
-<table>
-<tbody>
-<tr>
-<td>
-<p><img align="left" hspace="5" src="img.jpg" height="250"><br>
-&nbsp;&nbsp;
-</p><p>
-</p></td>
-<td>
-<font size="+4"><b>Jessica Grogan</b></font><br>
-<b>
-<p></p>
-<!-- <a>Computer Science Ph.D. student</a><br>
-<a href="http://www.cse.buffalo.edu">Department of Computer Science &amp; Engineering</a><br>
-<a href="http://www.buffalo.edu">University at Buffalo, The State University of New York</a><br></b>
-<p></p> -->
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <p><img align="left" hspace="5" src="img.jpg" height="250"><br>
+                    &nbsp;&nbsp;
+                    </p>
+                </td>
+                <td>
+                    <font size="+4"><b>Jessica Grogan</b></font><br>
+                    <p>Theoretical Computer Science Ph.D. student at SUNY Buffalo.<br> I have many interests, including logic, theoretical computer science, and machine learning.</p>
+                    <p>My advisor is <a href="https://cse.buffalo.edu/faculty/atri/">Atri Rudra</a>.</p>
+                    <a href="Jessica_Grogan_CV.pdf"><b>CV</b></a> <font size="-2">(April 2025)</font>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <br>
+                    <b>Connect</b><br><br>
+                    <a href="http://www.twitter.com/Jessica_Grogan_"><b>Twitter</b></a><br>
+                    <a href="https://www.linkedin.com/in/jessicagrogan4/"><b>LinkedIn</b></a><br>
+                    <a href="https://github.com/JessicaGrogan"><b>GitHub</b></a><br>
+                    <p>Email: jrgrogan@buffalo.edu</p>
+                </td>
+                <td>
+                    <br>
+                    <!-- Tabs -->
+                    <div class="tab">
+                        <button class="tablinks active" onclick="openTab(event, 'Publications')">Publications</button>
+                        <button class="tablinks" onclick="openTab(event, 'Blog')">Blog</button>
+                    </div>
 
-<p> Theoretical Computer Science Ph.D. student at SUNY Buffalo.<br> I have many interests, including logic, theoretical computer science, and machine learning. 
-</p> </p> 
+                    <!-- Publications Tab Content -->
+                    <div id="Publications" class="tabcontent" style="display: block;">
+                        <font size="+2"><b>Publications</b></font>
+                        <ul>
+                            <li>
+                                <a href="https://arxiv.org/abs/2503.12295"><b>Towards Learning High-Precision Least Squares Algorithms with Sequence Models.</b></a><br>
+                                Jerry Liu, Jessica Grogan, Owen Dugan, Ashish Rao, Simran Arora, Atri Rudra, Chris Ré
+                                In <i>ICLR: The Thirteenth International Conference on Learning Representations</i>, April. 2025. <b>Poster presentation</b><br>
+                                <a href="https://arxiv.org/abs/2503.12295">[Paper]</a>
+                                <a href="https://github.com/HazyResearch/precision-ls">[Code]</a>
+                            </li>
+                            <li>
+                                <a href="https://arxiv.org/abs/2310.12109"><b>Monarch Mixer: A Simple Sub-Quadratic GEMM-Based Architecture</b></a><br>
+                                Daniel Y. Fu, Simran Arora*, Jessica Grogan*, Isys Johnson*, Sabri Eyuboglu*, Armin W. Thomas*, Benjamin F. Spector, Michael Poli, Atri Rudra, Christopher Ré
+                                In <i>NeurIPS: 27th Conference on Neural Information Processing Systems</i>, Dec. 2023. <b>Oral presentation</b><br>
+                                <a href="https://arxiv.org/abs/2310.12109">[Paper]</a>
+                                <a href="https://github.com/HazyResearch/m2">[Code]</a>
+                                <a href="https://hazyresearch.stanford.edu/blog/2023-07-25-m2-bert">[Blog Post]</a>
+                            </li>
+                            <li>
+                                <a href="https://arxiv.org/abs/2204.00595"><b>Monarch: Expressive Structured Matrices for Efficient and Accurate Training</b></a><br>
+                                Tri Dao, Beidi Chen, Nimit Sohoni, Arjun Desai, Michael Poli, Jessica Grogan, Alexander Liu, Aniruddh Rao, Atri Rudra, Christopher Ré.<br>
+                                In <i>ICML: 39th International Conference on Machine Learning</i>, July 2022. <b><font color="DarkRed">Outstanding Paper Runner-up</font></b><br>
+                                <a href="https://arxiv.org/abs/2204.00595">[Paper]</a>
+                                <a href="https://github.com/HazyResearch/fly">[Code]</a>
+                                <a href="https://tridao.me/publications/monarch/monarch_poster.pdf">[Poster]</a>
+                                <b>Outstanding Poster Award</b> at the <a href="https://sites.google.com/mosaicml.com/efficientmlbayarea/">EfficientML Bay Area meetup</a>
+                            </li>
+                        </ul>
+                    </div>
 
-<p></p>
-<br>
-<p> My advisor is <a href="https://cse.buffalo.edu/faculty/atri/">Atri Rudra</a>.
-<br><br>
-<a href="Jessica_Grogan_CV.pdf"><b>CV</b></a> <font size="-2">(April 2025)</font>
-<br><br>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<br>
-<b> Connect </b><br><br>
-<a href="http://www.twitter.com/Jessica_Grogan_"> <b>Twitter</b>  </a> <br>
-<a href="https://www.linkedin.com/in/jessicagrogan4/"> <b>LinkedIn</b>  </a><br>
-<a href="https://github.com/JessicaGrogan"> <b>GitHub</b>  </a><br>
-<p>Email: jrgrogan@buffalo.edu</p>
-</td>
-<td>
+                    <!-- Blog Tab Content -->
+                    <div id="Blog" class="tabcontent">
+                        <font size="+2"><b>Blog</b></font>
+                        <p>Welcome to my blog! I'll be sharing thoughts on theoretical computer science, machine learning research, and academic life.</p>
+                        
+                        <!-- Sample blog post - you can replace or add more -->
+                        <h3>Sample Post: My Research Journey</h3>
+                        <p><i>May 15, 2025</i></p>
+                        <p>
+                            This is a placeholder for your first blog post. You can write about your research journey, 
+                            interesting problems you're tackling, or insights from recent papers you've read.
+                        </p>
+                        <p>
+                            To add more posts, simply duplicate this section and update the content. You might want to 
+                            consider adding a "Read more" link for longer posts, or categorizing your posts by topic.
+                        </p>
+                    </div>
 
-
-<p>
-<font size="+2"><b> Publications </b><br></font>
-<ul>
-        <li>
-                <a href="https://arxiv.org/abs/2503.12295"><b>Towards Learning High-Precision Least Squares Algorithms with Sequence Models.</b></a> <br>
-                Jerry Liu, Jessica Grogan, Owen Dugan, Ashish Rao, Simran Arora, Atri Rudra, Chris Ré
-                In <i> ICLR: The Thirteenth International Conference on Learning Representations</i>, April. 2025. <b>Poster presentation</b></b><br>
-                <a href="https://arxiv.org/abs/2503.12295">[Paper]</a>
-                <a href="https://github.com/HazyResearch/precision-ls">[Code]</a>
-        </li>
-        <li>
-            <a href="https://arxiv.org/abs/2310.12109"><b>Monarch Mixer: A Simple Sub-Quadratic GEMM-Based Architecture</b></a> <br>
-            Daniel Y. Fu, Simran Arora*, Jessica Grogan*, Isys Johnson*, Sabri Eyuboglu*, Armin W. Thomas*, Benjamin F. Spector, Michael Poli, Atri Rudra, Christopher Ré
-            In <i> NeurIPS: 27th Conference on Neural Information Processing Systems </i>, Dec. 2023. <b>Oral presentation</b></b><br>
-            <a href="https://arxiv.org/abs/2310.12109">[Paper]</a>
-            <a href="https://github.com/HazyResearch/m2">[Code]</a>
-            <a href="https://hazyresearch.stanford.edu/blog/2023-07-25-m2-bert">[Blog Post]</a>
-        </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2204.00595"><b>Monarch: Expressive Structured Matrices for Efficient and Accurate Training</b></a> <br>
-            Tri Dao, Beidi Chen, Nimit Sohoni, Arjun Desai, Michael Poli, Jessica Grogan, Alexander Liu, Aniruddh Rao, Atri Rudra, Christopher Ré. <br>
-            In <i>ICML: 39th International Conference on Machine Learning</i>, July 2022.  <b><font color="DarkRed">Outstanding Paper Runner-up</font></b><br>
-            <a href="https://arxiv.org/abs/2204.00595">[Paper]</a>
-            <a href="https://github.com/HazyResearch/fly">[Code]</a>
-            <a href="https://tridao.me/publications/monarch/monarch_poster.pdf">[Poster]</a> 
-            <b>Outstanding Poster Award</b> at the <a href="https://sites.google.com/mosaicml.com/efficientmlbayarea/">
-                EfficientML Bay Area meetup</a> <br></p>
-        </li>
-
-        </ul>
-<p></p>
-<p>
-
-
-</tbody>
-</table>
-
-
-</body></html>
+                    <script>
+                        function openTab(evt, tabName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(tabName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                    </script>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
