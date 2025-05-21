@@ -12,12 +12,12 @@
             --background-color: #f8f6ff; 
             --text-color: #4a4a4a; 
         } */
-         :root {
-            --primary-color: #e8b4bc; /* Soft rose as primary color */
-            --secondary-color: #d291bc; /* Deeper rose/mauve for contrast */
-            --accent-color: #f0d9e3; /* Very light pink for subtle accents */
-            --background-color: #fef8fa; /* Warm white with hint of pink */
-            --text-color: #4a3a42; /* Deep taupe - warm and sophisticated */
+        :root {
+            --primary-color: #5e548e; /* Deep purple - scholarly and professional */
+            --secondary-color: #9f86c0; /* Lighter purple for accents */
+            --accent-color: #be95c4; /* Soft lavender for subtle elements */
+            --background-color: #f5f5f7; /* Very light gray with purple undertone */
+            --text-color: #2e2e3a; /* Deep blue-gray for readability */
         }
         
         img {
@@ -191,7 +191,7 @@
         
         font[size="+2"] b {
             color: var(--primary-color);
-            border-bottom: 2px dotted var(--secondary-color);
+            border-bottom: 2px dotted var(--background-color);
             padding-bottom: 5px;
         }
         
@@ -208,7 +208,7 @@
             background-color: #fefeff;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             transition: transform 0.2s ease;
-            border-left: 4px solid var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
         }
         
         ul li:hover {
@@ -493,7 +493,7 @@
             </div>
             <div class="profile-info">
                 <font size="+4"><b>Jessica Grogan</b></font><br>
-                <p>Theoretical Computer Science Ph.D. student at SUNY Buffalo.<br> I have many interests, including logic, theoretical computer science, and machine learning.</p>
+                <p>Theoretical Computer Science Ph.D. student at SUNY Buffalo.<br> Interested in theoretical computer science, with a focus on theory driven machine learning. Tangentially interested in logic.</p>
                 <p>My advisor is <a href="https://cse.buffalo.edu/faculty/atri/">Atri Rudra</a>. </p>
                 <!-- <a href="Jessica_Grogan_CV.pdf"><b>CV</b></a> <font size="-2">(April 2025)</font> -->
             </div>
@@ -546,39 +546,13 @@
             
             <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-image">Structured Matrices</div>
+                    <div class="project-image">Proj img filler</div>
                     <div class="project-content">
-                        <h3 class="project-title">Monarch Matrices</h3>
-                        <p>Research on efficient matrix representations for deep learning models, focusing on sub-quadratic complexity algorithms.</p>
+                        <h3 class="project-title">Filler</h3>
+                        <p>Filler.</p>
                         <div class="project-links">
                             <a href="#">Demo</a>
-                            <a href="https://github.com/HazyResearch/m2">Code</a>
-                            <a href="https://arxiv.org/abs/2310.12109">Paper</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">Learning Systems</div>
-                    <div class="project-content">
-                        <h3 class="project-title">High-Precision LS Algorithms</h3>
-                        <p>Exploring how sequence models can learn high-precision least squares algorithms with applications in numerical computing.</p>
-                        <div class="project-links">
-                            <a href="#">Demo</a>
-                            <a href="https://github.com/HazyResearch/precision-ls">Code</a>
-                            <a href="https://arxiv.org/abs/2503.12295">Paper</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">Theoretical CS</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Algorithm Complexity Analysis</h3>
-                        <p>Theoretical analysis of complexity bounds for matrix multiplication algorithms with applications to machine learning.</p>
-                        <div class="project-links">
-                            <a href="#">Details</a>
-                            <a href="#">Slides</a>
+                            <a href="#">Code</a>
                         </div>
                     </div>
                 </div>
@@ -618,35 +592,23 @@
         <!-- Blog Tab Content -->
         <div id="Blog" class="tabcontent">
             <font size="+2"><b>Blog</b></font>
-            <p>Welcome to my blog! I'll be sharing thoughts on theoretical computer science, machine learning research, and academic life. ✨</p>
+            <p>Welcome to my blog!</p>
             
             <!-- Sample blog post -->
             <div class="blog-post">
-                <h3>✏️ My Research Journey</h3>
-                <p class="blog-date">May 15, 2025</p>
+                <h3>Filler</h3>
+                <p class="blog-date">May 18th, 2025</p>
                 <div class="blog-content">
                     <p>
-                        This is a placeholder for your first blog post. You can write about your research journey, 
-                        interesting problems you're tackling, or insights from recent papers you've read.
+                        Filler
                     </p>
                     <p>
-                        To add more posts, simply duplicate this section and update the content!
+                        Filler
                     </p>
-                    <a href="#" class="read-more">Read more →</a>
+                    <a href="blogs/intro.html" class="read-more">Read more →</a>
                 </div>
             </div>
             
-            <div class="blog-post">
-                <h3>🔍 Fascinating Applications of Structured Matrices</h3>
-                <p class="blog-date">May 1, 2025</p>
-                <div class="blog-content">
-                    <p>
-                        Another sample blog post to show how multiple entries would look. This one could discuss
-                        the applications of your research in different domains.
-                    </p>
-                    <a href="#" class="read-more">Read more →</a>
-                </div>
-            </div>
         </div>
 
         <!-- Contact Tab Content -->
@@ -671,25 +633,6 @@
                 <a href="https://www.linkedin.com/in/jessicagrogan4/" class="social-button">LinkedIn</a>
                 <a href="https://github.com/JessicaGrogan" class="social-button">GitHub</a>
             </div>
-            <!-- <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email address">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" placeholder="Message subject">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Hi Jess, ..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form> -->
         </div>
 
         <script>
