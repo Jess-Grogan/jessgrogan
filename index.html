@@ -5,19 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jessica Grogan - Theoretical Computer Science Ph.D. student at SUNY Buffalo">
     <style>
-        /* :root {
-            --primary-color: #a6de9f; 
-            --secondary-color: #ffafcc;
+        :root {
+            --primary-color: #65b75b; 
+            --secondary-color: #fac7f7;
             --accent-color: #f1d358; 
-            --background-color: #f8f6ff; 
+            --background-color: #e7fff5; 
             --text-color: #4a4a4a; 
-        } */
+        } 
         :root {
             --primary-color: #5e548e; /* Deep purple - scholarly and professional */
             --secondary-color: #9f86c0; /* Lighter purple for accents */
             --accent-color: #be95c4; /* Soft lavender for subtle elements */
             --background-color: #f5f5f7; /* Very light gray with purple undertone */
             --text-color: #2e2e3a; /* Deep blue-gray for readability */
+            /* Add transition for all theme variables */
+            transition: all 0.7s ease;
+        }
+        
+        /* Additional class for transitioning elements */
+        .theme-transition * {
+            transition: background-color 0.7s ease, 
+                        color 0.7s ease, 
+                        border-color 0.7s ease, 
+                        box-shadow 0.7s ease;
         }
         
         img {
@@ -166,6 +176,32 @@
             transform: scaleX(0.7);
         }
 
+        /* Add tab-specific indicator colors */
+        .tab button[onclick*="Publications"].active::before {
+            background-color: white;
+            transform: scaleX(0.7);
+        }
+
+        .tab button[onclick*="Projects"].active::before {
+            background-color: white;
+            transform: scaleX(0.7);
+        }
+
+        .tab button[onclick*="Teaching"].active::before {
+            background-color: white;
+            transform: scaleX(0.7);
+        }
+
+        .tab button[onclick*="Blog"].active::before {
+            background-color: white;
+            transform: scaleX(0.7);
+        }
+
+        .tab button[onclick*="Contact"].active::before {
+            background-color: white;
+            transform: scaleX(0.7);
+        }
+
         .tabcontent {
             display: none;
             padding: 20px;
@@ -191,7 +227,7 @@
         
         font[size="+2"] b {
             color: var(--primary-color);
-            border-bottom: 2px dotted var(--background-color);
+            border-bottom: 2px dotted var(--primary-color);
             padding-bottom: 5px;
         }
         
@@ -636,6 +672,45 @@
         </div>
 
         <script>
+            // Define themes for each tab
+            const themes = {
+              'Contact': {
+                '--primary-color': '#5e548e',
+                '--secondary-color': '#9f86c0',
+                '--accent-color': '#be95c4',
+                '--background-color': '#f5f5f7',
+                '--text-color': '#2e2e3a'
+              },
+              'Projects': {
+                '--primary-color': '#2a9d8f',
+                '--secondary-color': '#83c5be',
+                '--accent-color': '#e9c46a',
+                '--background-color': '#e7fff5', 
+                '--text-color': '#264653'
+              },
+              'Teaching': {
+                '--primary-color': '#457b9d', 
+                '--secondary-color': '#a8dadc',
+                '--accent-color': '#e63946',
+                '--background-color': '#f1faee',
+                '--text-color': '#1d3557'
+              },
+              'Publications': {
+                '--primary-color': '#6a994e', 
+                '--secondary-color': '#a7c957', 
+                '--accent-color': '#f2cc8f', 
+                '--background-color': '#f3fff4',
+                '--text-color': '#386641' 
+              },
+              'Blog': {
+                '--primary-color': '#65b75b',
+                '--secondary-color': '#fac7f7',
+                '--accent-color': '#f1d358',
+                '--background-color': '#f8f6ff',
+                '--text-color': '#4a4a4a',
+              }
+            };
+
             document.addEventListener('DOMContentLoaded', function() {
                 const tabs = document.querySelectorAll('.tablinks');
                 tabs.forEach(tab => {
@@ -644,11 +719,19 @@
                     });
                 });
                 
-                // Default to showing the Publications tab
+                // Default to showing the Publications tab with its theme
                 document.getElementById('Publications').style.display = 'block';
+                
+                // Apply initial theme
+                const initialTheme = themes['Publications'];
+                const root = document.documentElement;
+                Object.keys(initialTheme).forEach(property => {
+                    root.style.setProperty(property, initialTheme[property]);
+                });
             });
             
             function openTab(evt, tabName) {
+                // Original tab switching logic
                 let i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");
                 for (i = 0; i < tabcontent.length; i++) {
@@ -660,6 +743,22 @@
                 }
                 document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.classList.add("active");
+                
+                // Add theme switching
+                const theme = themes[tabName];
+                if (theme) {
+                    // Apply the theme
+                    const root = document.documentElement;
+                    Object.keys(theme).forEach(property => {
+                        root.style.setProperty(property, theme[property]);
+                    });
+                    
+                    // Smooth transition for all themed elements
+                    document.body.classList.add('theme-transition');
+                    setTimeout(() => {
+                        document.body.classList.remove('theme-transition');
+                    }, 1000); // Match this with the CSS transition duration
+                }
             }
         </script>
     </div>
