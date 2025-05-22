@@ -10,23 +10,6 @@
     <meta name="description" content="Jessica Grogan - Theoretical Computer Science Ph.D. student at SUNY Buffalo">
     
     <style>
-        :root {
-            --primary-color: #65b75b; 
-            --secondary-color: #fac7f7;
-            --accent-color: #f1d358; 
-            --background-color: #e7fff5; 
-            --text-color: #4a4a4a; 
-        } 
-        :root {
-            --primary-color: #5e548e; /* Deep purple - scholarly and professional */
-            --secondary-color: #9f86c0; /* Lighter purple for accents */
-            --accent-color: #be95c4; /* Soft lavender for subtle elements */
-            --background-color: #f5f5f7; /* Very light gray with purple undertone */
-            --text-color: #2e2e3a; /* Deep blue-gray for readability */
-            /* Add transition for all theme variables */
-            transition: all 0.7s ease;
-        }
-        
         /* Additional class for transitioning elements */
         .theme-transition * {
             transition: background-color 0.7s ease, 
@@ -181,32 +164,6 @@
             transform: scaleX(0.7);
         }
 
-        /* Add tab-specific indicator colors */
-        .tab button[onclick*="Publications"].active::before {
-            background-color: white;
-            transform: scaleX(0.7);
-        }
-
-        .tab button[onclick*="Projects"].active::before {
-            background-color: white;
-            transform: scaleX(0.7);
-        }
-
-        .tab button[onclick*="Teaching"].active::before {
-            background-color: white;
-            transform: scaleX(0.7);
-        }
-
-        .tab button[onclick*="Blog"].active::before {
-            background-color: white;
-            transform: scaleX(0.7);
-        }
-
-        .tab button[onclick*="Contact"].active::before {
-            background-color: white;
-            transform: scaleX(0.7);
-        }
-
         .tabcontent {
             display: none;
             padding: 20px;
@@ -293,16 +250,6 @@
         
         .read-more:hover {
             color: var(--secondary-color);
-        }
-        
-        /* Section styling */
-        .section-title {
-            display: inline-block;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            border-bottom: 2px dotted var(--secondary-color);
-            padding-bottom: 3px;
         }
         
         /* Social link styling */
@@ -458,55 +405,6 @@
             border-radius: 4px;
         }
 
-        /* Contact form styling */
-        .contact-form {
-            margin-top: 20px;
-            display: grid;
-            gap: 15px;
-            max-width: 600px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            width: fit-content;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
         .contact-info {
             margin-top: 30px;
         }
@@ -612,22 +510,6 @@
                 <!-- <p><strong>Summer Course</strong> We will meet every weekday for 12 weeks over the summer!</p> -->
                 <a href="#">Course Website</a>
             </div>
-            
-            <!-- <div class="teaching-card">
-                <span class="semester">Fall 2024</span>
-                <h3>Data Structures <span class="course-code">CSE 250</span></h3>
-                <p>Teaching Assistant for undergraduate course on fundamental data structures and algorithms.</p>
-                <p><strong>Responsibilities:</strong> Assisting with lab sessions, grading programming assignments, and holding office hours.</p>
-                <a href="#">Course Materials</a>
-            </div> -->
-            
-            <!-- <div class="teaching-card">
-                <span class="semester">Spring 2024</span>
-                <h3>Introduction to Computer Science <span class="course-code">CSE 115</span></h3>
-                <p>Teaching Assistant for introductory programming course focused on Python.</p>
-                <p><strong>Responsibilities:</strong> Leading lab sessions, grading assignments, and mentoring first-year students.</p>
-                <a href="#">Course Resources</a>
-            </div> -->
         </div>
 
         <!-- Blog Tab Content -->
