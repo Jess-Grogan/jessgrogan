@@ -193,7 +193,10 @@
         let currentYear = 2025;
 
         const summerEvents = {
-            '2025-05-30': [{title: 'Pa0 released', description: 'Due in 7 days.'}]
+            '2025-05-26': [{title: 'Memorial Day', description: 'Federal holiday'}],
+            '2025-05-30': [{title: 'Pa0 released', description: 'Due in 7 days.'}],
+            '2025-06-19': [{title: 'Juneteenth', description: 'Federal holiday'}],
+            '2025-07-04': [{title: 'Independence Day', description: 'Federal holiday'}]
         };
 
         function generateCalendar(monthIndex, year) {
@@ -239,7 +242,7 @@
                 
                 if (summerEvents[dateString]) {
                     summerEvents[dateString].forEach(event => {
-                        dayContent += `<div class="event" title="${event.description}">${event.title}</div>`;
+                        dayContent += `<div class="event" title="${event.description}" onclick="showEventDetails('${event.title}', '${event.description}')">${event.title}</div>`;
                     });
                 }
                 
@@ -281,6 +284,10 @@
                 currentMonth++;
             }
             updateCalendarDisplay();
+        }
+
+        function showEventDetails(title, description) {
+            alert(`${title}\n\n${description}`);
         }
 
         // Initialize calendar
