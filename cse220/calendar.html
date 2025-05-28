@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Events Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .nav-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .current-month {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .calendar {
+            padding: 30px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            background: #1f2937;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .day {
+            background: white;
+            padding: 15px 10px;
+            min-height: 100px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .day:hover {
+            background: #f8f9fa;
+        }
+
+        .day-number {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .other-month {
+            color: #ccc;
+            background: #f8f9fa;
+        }
+
+        .today {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .today .day-number {
+            color: white;
+        }
+
+        .event {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 3px 6px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin: 2px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .calendar-grid {
+                font-size: 12px;
+            }
+            
+            .day {
+                min-height: 80px;
+                padding: 10px 5px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .calendar-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Course Calendar</h1>
+        </div>
+
+        <div class="calendar-nav">
+            <button class="nav-btn" onclick="previousMonth()">← Previous</button>
+            <div class="current-month" id="currentMonth">May 2025</div>
+            <button class="nav-btn" onclick="nextMonth()">Next →</button>
+        </div>
+
+        <div class="calendar">
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const months = ['May', 'June', 'July', 'August'];
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        
+        let currentDate = new Date();
+        let currentMonth = 0; // Start with May (index 0 in our months array)
+        let currentYear = 2025;
+
+        const summerEvents = {
+            '2025-05-30': [{title: 'Pa0 released', description: 'Due in 7 days.'}]
+        };
+
+        function generateCalendar(monthIndex, year) {
+            // Convert our monthIndex to actual month number (May=4, June=5, etc.)
+            const actualMonth = monthIndex + 4; // May is month 4 in JavaScript Date
+            
+            const firstDay = new Date(year, actualMonth, 1).getDay();
+            const daysInMonth = new Date(year, actualMonth + 1, 0).getDate();
+            const daysInPrevMonth = new Date(year, actualMonth, 0).getDate();
+            
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+            
+            // Add day headers
+            days.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.textContent = day;
+                calendarGrid.appendChild(dayHeader);
+            });
+            
+            // Add previous month's trailing days
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const day = document.createElement('div');
+                day.className = 'day other-month';
+                day.innerHTML = `<div class="day-number">${daysInPrevMonth - i}</div>`;
+                calendarGrid.appendChild(day);
+            }
+            
+            // Add current month's days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'day';
+                
+                const dateString = `${year}-${String(actualMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const today = new Date();
+                
+                if (year === today.getFullYear() && actualMonth === today.getMonth() && day === today.getDate()) {
+                    dayElement.classList.add('today');
+                }
+                
+                let dayContent = `<div class="day-number">${day}</div>`;
+                
+                if (summerEvents[dateString]) {
+                    summerEvents[dateString].forEach(event => {
+                        dayContent += `<div class="event" title="${event.description}">${event.title}</div>`;
+                    });
+                }
+                
+                dayElement.innerHTML = dayContent;
+                calendarGrid.appendChild(dayElement);
+            }
+            
+            // Add next month's leading days to fill the grid
+            const totalCells = calendarGrid.children.length - 7; // Subtract headers
+            const remainingCells = 42 - totalCells; // 6 rows * 7 days
+            for (let day = 1; day <= remainingCells; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'day other-month';
+                dayElement.innerHTML = `<div class="day-number">${day}</div>`;
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+
+        function updateCalendarDisplay() {
+            document.getElementById('currentMonth').textContent = `${months[currentMonth]} ${currentYear}`;
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function previousMonth() {
+            if (currentMonth === 0) {
+                // Don't go before May - could modify this to allow year navigation
+                return;
+            } else {
+                currentMonth--;
+            }
+            updateCalendarDisplay();
+        }
+
+        function nextMonth() {
+            if (currentMonth === 3) {
+                // Don't go past August - could modify this to allow year navigation
+                return;
+            } else {
+                currentMonth++;
+            }
+            updateCalendarDisplay();
+        }
+
+        // Initialize calendar
+        updateCalendarDisplay();
+    </script>
+</body>
+</html>
